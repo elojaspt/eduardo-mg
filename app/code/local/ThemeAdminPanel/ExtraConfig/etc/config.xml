@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <ThemeAdminPanel_ExtraConfig>
+            <version>1.0.0</version>
+            <depends>
+            <!-- no dependencies -->
+            </depends>
+        </ThemeAdminPanel_ExtraConfig>
+    </modules>
+	<global>
+		<models>
+            <!-- ... -->
+            <ExtraConfig>
+                <class>ThemeAdminPanel_ExtraConfig_Model</class>
+            </ExtraConfig>   
+            <!-- ... -->
+        </models>
+		<helpers>
+			<ExtraConfig>
+				<class>ThemeAdminPanel_ExtraConfig_Helper</class>
+			</ExtraConfig>
+		</helpers>
+	    <resources />
+	    <extraconfig />
+	    <blocks>
+            <mygeneral><class>ThemeAdminPanel_ExtraConfig_Block</class></mygeneral>
+		</blocks>
+	</global>
+	<!---->
+	<default>
+		<mygeneral>
+			<generaloptions>
+                <menutype>1</menutype>
+                <topbanner>default/phone.png</topbanner>
+				<googlefont>Source Sans Pro:200,200italic,300,300italic,regular,italic,600,600italic,700,700italic,900,900italic</googlefont>
+				<additional_nav>Contacts</additional_nav>
+				<additional_nav_href>index.php/contacts/</additional_nav_href>
+				<topbtn>1</topbtn>
+                <enable_ajax>1</enable_ajax>
+		<hide_wish>0</hide_wish>
+		<hide_compare>0</hide_compare>
+		<hide_cart>0</hide_cart>
+		
+		
+			</generaloptions>
+			<background>
+                <maincolor>F7F7F9</maincolor>
+                <pattern>default/pattern.png</pattern>
+                <bg_repeat></bg_repeat>
+                <bg_attachment></bg_attachment>
+                <bg_position_x></bg_position_x>
+                <bg_position_y></bg_position_y>
+			</background>            
+            <product_list>
+				
+				<shorten_name>23</shorten_name>
+				
+				<layer>1</layer>
+				<sale_label>1</sale_label>
+				<sale_label_text>Sale</sale_label_text>
+				<new_label>1</new_label>
+				<new_label_text>New</new_label_text>
+            </product_list>
+			<share>
+			        <facebookgroupid>115403961948855</facebookgroupid>
+				<twittername>dedalx</twittername>
+				<use_share>1</use_share>
+				<share_code><![CDATA[<span class='st_fblike_hcount' displayText='Facebook Like'></span>
+<span class='st_twitter_hcount' displayText='Tweet'></span>
+<span class='st_pinterest_hcount' displayText='Pinterest'></span>
+<span class='st_plusone_hcount' displayText='Google +1'></span>]]></share_code>
+			</share>
+			<slideshow>
+				<use_slideshow>1</use_slideshow>
+				<hide_right_sliders>0</hide_right_sliders>
+				<autoplay>1</autoplay>
+				<speed>8000</speed>
+                <slides_count>2</slides_count>
+			</slideshow>
+			<productpage>
+				            
+				<use_zoom>1</use_zoom>
+				<use_carousel>1</use_carousel>
+			</productpage>
+            <colors>
+                <active_color>6CBE42</active_color>
+                <button_hover>58BAE9</button_hover>
+            </colors>
+	    <customcode>
+                <customcss>/* Add any CSS code here */</customcss>
+                <customjs>// Add any JavaScript code here</customjs>
+            </customcode>
+		</mygeneral>
+	</default>
+	<!---->
+    <adminhtml>
+	<menu>
+            <eduardo translate="title" module="ExtraConfig">
+                <title>Eduardo</title>
+                <sort_order>6666</sort_order>
+                <children>
+                    <settings translate="title" module="ExtraConfig">
+                                <title>Theme Settings</title>
+                                <sort_order>10</sort_order>
+                                <action>adminhtml/system_config/edit/section/mygeneral</action>
+                            </settings>
+                </children>
+		
+            </eduardo>
+        </menu>
+        <layout>
+            <updates>
+                <ExtraConfig>
+                    <file>options.xml</file>
+                </ExtraConfig>
+            </updates>
+        </layout>
+    </adminhtml>     
+</config>

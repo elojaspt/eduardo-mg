@@ -1,0 +1,62 @@
+
+<div id="top"></div>
+<div id="header_menu" class="clearfix"><?php echo $this->getChildHtml('currency') ?><?php echo $this->getWelcome() ?><?php echo $this->getChildHtml('store_language') ?></div>
+
+<div class="header-container">
+    <div class="header">
+        
+<div id="header_mainmenu" class="clearfix">
+
+    <a href="<?php echo $this->getUrl('') ?>" class="mm_logo" style="background-image: url('<?php echo $this->getLogoSrc() ?>');"></a><a href="<?php echo $this->getUrl('') ?>" class="mm_home"><?php echo $this->__('Home') ?></a><a class="mm_wishlist" href="<?php echo $this->getUrl('wishlist')?>" id="wishlist-total"><?php echo $this->__('Wish List') ?></a><a class="mm_account" href="<?php echo $this->getUrl('customer/account')?>"><?php echo $this->__('My Account') ?></a><a class="mm_checkout" href="<?php echo $this->getUrl('checkout')?>"><?php echo $this->__('Checkout') ?></a>
+<div id="cart" class="mm_shopcart" onclick="setLocation('<?php echo $this->getUrl('checkout/cart') ?>')">
+<div class="heading">
+    <?php echo $this->getChildHtml('top_cart') ?>
+</div>
+
+</div>
+</div>
+
+       
+        
+            
+           
+    </div>
+    <?php echo $this->getChildHtml('topMenu') ?>
+    
+<div class="search-bar">
+<div id="phone">
+<?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('header_working_time')->toHtml(); ?>
+</div>
+<form id="search_mini_form" method="get" action="<?php echo $this->getUrl('') ?>catalogsearch/result/">
+<div id="search">
+    
+<div class="search-input form-search">
+    <input id="search" class="input-text" type="text" name="q" value="<?php echo $this->__('Search...') ?>" onblur="if(this.value == '') {this.value = '<?php echo $this->__('Search...') ?>';}" onclick="this.value = ''" >
+</div>
+<button class="button-search" type="submit"></button>
+
+
+
+
+<button class="button" title="Go" type="submit" style="display:none;">
+<span>Go</span>
+</button>
+<div id="search_autocomplete" class="search-autocomplete" style="display: none;"></div>
+<script type="text/javascript">
+//<![CDATA[
+var searchForm = new Varien.searchForm('search_mini_form', 'search', 'Search...');
+searchForm.initAutocomplete('<?php echo $this->getUrl('') ?>catalogsearch/ajax/suggest/', 'search_autocomplete');
+//]]>
+</script>
+
+
+
+
+</div>
+</form>
+</div>
+    
+    <?php echo $this->getChildHtml('topBread') ?>
+    <?php echo $this->getChildHtml('topContainer'); ?>
+
+</div>

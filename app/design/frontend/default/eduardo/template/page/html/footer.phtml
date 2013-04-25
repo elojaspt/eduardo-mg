@@ -1,0 +1,119 @@
+
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_about_block')->toHtml(); ?>
+        
+
+<div class="footer-container">
+    <div class="additional-footer">
+        <div class="social-icons"><?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('social_icons')->toHtml(); ?></div>
+    <div id="newsletter">
+        <?php echo $this->getChildHtml('newsletter') ?>
+        
+    </div>   
+    <!-- eduardo footer -->
+     <div id="footer">
+        <?php if(themeOptions('topbtn')): ?>                    
+                        <div id="message"><a href="#top" id="top-link"></a></div> 
+                    <?php endif; ?>
+   <!-- columns -->
+   <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('footer_menu')->toHtml(); ?>
+   
+   <?php if(themeOptions('twittername')<>'') { ?>
+    <div class="column">
+  <h3>Twitter</h3>
+  <script type="text/javascript">
+  function format_twitter(twitters) {
+var statusHTML = [];
+for (var i=0; i<twitters.length; i++){
+var username = twitters[i].user.screen_name;
+var status = twitters[i].text.replace(/((https?|s?ftp|ssh)\:\/\/[^"\s\<\>]*[^.,;'">\:\s\<\>\)\]\!])/g, function(url) {
+return '<a href="'+url+'">'+url+'</a>';
+}).replace(/\B@([_a-z0-9]+)/ig, function(reply) {
+return reply.charAt(0)+'<a href="http://twitter.com/'+reply.substring(1)+'">'+reply.substring(1)+'</a>';
+});
+statusHTML.push('<li><span>'+status+'</span> <a href="http://twitter.com/'+username+'/statuses/'+twitters[i].id_str+'">'+'</a></li>');
+}
+return statusHTML.join('');
+}
+  </script>
+  <script type="text/javascript">
+jQuery(document).ready(function($){
+$.getJSON('http://api.twitter.com/1/statuses/user_timeline/<?php echo themeOptions('twittername') ?>.json?count=2&callback=?', function(tweets){
+$("#twitter_update_list").html(format_twitter(tweets));
+});
+});
+</script>
+  
+    <ul id="twitter_update_list"></ul>
+  </div>
+     <?php } ?>
+     
+     <?php if(themeOptions('facebookgroupid')<>'') { ?>
+    
+    <div class="column">
+    <h3>FACEBOOK</h3>
+     <!-- Facebook -->
+    <style type="text/css">
+ .facebookOuter {
+    background-color:transparent; 
+    
+    padding:0px;
+    
+    border:none;
+  }
+ .facebookInner {
+    
+    overflow:hidden;
+  }
+  
+</style>
+
+<div class="facebookOuter">
+ <div class="facebookInner">
+  <div class="fb-like-box" data-href="http://www.facebook.com/pages/dx/<?php echo themeOptions('facebookgroupid') ?>" data-width="200" data-height="100" data-show-faces="false" data-colorscheme="dark" data-stream="false" data-border-color="transparent" data-header="false"></div>       
+ </div>
+</div>
+           
+<div id="fb-root"></div>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+
+    <!-- / Facebook -->
+    <?php } ?>
+    
+  </div>
+  </div>
+    
+    
+    
+    <!-- / eduardo footer -->
+    
+    
+    
+    </div>
+    
+    
+   
+</div>
+
+
+
+
+
+    <div class="footer">
+        <?php echo $this->getChildHtml('bottomContainer') ?>
+        <div class="footer-left">
+            <?php echo $this->getChildHtml('footer_links') ?><br />
+            <?php echo $this->getCopyright() ?>&nbsp;&nbsp;
+            <!--<?php echo $this->getChildHtml('cms_footer_links') ?>-->
+        </div>
+        <div class="footer-right">
+            <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId('payment_icons')->toHtml(); ?>
+        </div>
+    </div>
